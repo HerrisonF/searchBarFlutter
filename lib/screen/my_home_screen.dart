@@ -5,17 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_search_bar/component/search_dialog.dart';
+import 'package:flutter_search_bar/component/search.dart';
 
 class MyHomePage extends StatefulWidget {
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  openSearch(BuildContext context) {
-    showDialog(context: context, builder: (_) => SearchDialog());
-  }
+
+  List<String> textos = [
+    'Banana',
+    'Balde',
+    'Macarrão',
+    'Escova',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.white,
                           child: InkWell(
                             onTap: () {
-                              openSearch(context);
+                              showSearch(context: context, delegate: Search(textos));
                             },
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.06,
