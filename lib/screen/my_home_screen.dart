@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
                 child: InkWell(
                   onTap: () {
-                    showSearch(context: context, delegate: Search(textos));
+                    showSearch(context: context, delegate: Search(textos)).then((value) => print(value));
                   },
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.06,

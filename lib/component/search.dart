@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Search extends SearchDelegate {
+class Search extends SearchDelegate<String> {
   final List<String> listExample;
-  String selectedResult = "";
 
   List<String> termosMaisBuscados = [
     'óleo',
@@ -53,8 +52,13 @@ class Search extends SearchDelegate {
   }
 
   @override
+  void showResults(BuildContext context){
+    close(context, query);
+  }
+
+  @override
   Widget buildResults(BuildContext context) {
-    return Text(selectedResult);
+    return null;
   }
 
   @override
@@ -137,9 +141,7 @@ class Search extends SearchDelegate {
                               suggestionList[index],
                             ),
                             onTap: () {
-                              selectedResult = suggestionList[index];
-                              showResults(context);
-                              Navigator.of(context).pop();
+                              close(context, suggestionList[index]);
                             },
                           ),
                           Divider(),
