@@ -16,6 +16,16 @@ class Search extends SearchDelegate<String> {
   Search(this.listExample);
 
   @override
+  ThemeData appBarTheme(BuildContext context){
+    assert(context != null);
+    final ThemeData theme = Theme.of(context);
+    assert(theme != null);
+    return theme.copyWith(
+      primaryColor: Colors.grey[50],
+    );
+  }
+
+  @override
   String get searchFieldLabel => 'Pesquise o item que deseja';
 
   @override
